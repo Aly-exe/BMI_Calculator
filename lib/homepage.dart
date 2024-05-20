@@ -140,38 +140,6 @@ class _BmiHomePageState extends State<BmiHomePage> {
             ),
           ),
           //fourth Part
-        //   Expanded(
-        //     child: Container(
-        //       width: double.infinity,
-        //       decoration: BoxDecoration(color: Colors.blue),
-        //       child: TextButton(
-        //         child: Text(
-        //           "Calculate",
-        //           style: TextStyle(
-        //             fontSize: 25.0,
-        //             color: Colors.white,
-        //           ),
-        //         ),
-        //         onPressed: () {
-        //           setState(() {
-        //             result = weight / pow(manheight / 100, 2);
-        //             result.round();
-        //           });
-        //           Navigator.push(
-        //               context,
-        //               MaterialPageRoute(
-        //                   builder: (context) => Result(
-        //                         result: result.round(),
-        //                         Age: age,
-        //                         gender: isMale ? "Male" : "Female",
-        //                         weight: weight,
-        //                         height: manheight,
-        //                       )));
-        //         },
-        //       ),
-        //     ),
-        //   )
-        // ],
         CalculateButton(text: "Calculate", onPressed:() {
                   setState(() {
                     result = weight / pow(manheight / 100, 2);
