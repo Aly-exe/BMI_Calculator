@@ -1,6 +1,4 @@
 import 'package:bmi/homepage.dart';
-//import 'package:bmi/BMI.dart';
-
 import 'package:flutter/material.dart';
 
 void main() {
