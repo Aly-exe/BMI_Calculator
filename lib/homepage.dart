@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:bmi/constants/colors.dart';
+import 'package:bmi/widgets/calculatebutton.dart';
 import 'package:bmi/widgets/gendercontainer.dart';
 import 'package:bmi/widgets/ageoeweightcontainer.dart';
 import 'package:bmi/widgets/heightslidercontainer.dart';
@@ -23,7 +24,6 @@ class _BmiHomePageState extends State<BmiHomePage> {
   double result = 0.0;
   @override
   void initState() {
-    
     super.initState();
   }
 
@@ -34,7 +34,7 @@ class _BmiHomePageState extends State<BmiHomePage> {
         backgroundColor: Color(0XFF3FA796),
         title: Text('BMI Calculator'),
         centerTitle: true,
-        titleTextStyle: TextStyle(color: whitecolor, fontSize: 22.0) ,
+        titleTextStyle: TextStyle(color: whitecolor, fontSize: 22.0),
       ),
       body: Column(
         children: [
@@ -101,55 +101,7 @@ class _BmiHomePageState extends State<BmiHomePage> {
                       manheight = value.round();
                     });
                   },
-                )),
-            // child: Container(
-            //   height: 156,
-            //   width: 320,
-            //   child: Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: [
-            //       Text(
-            //         "Heigth",
-            //         style: TextStyle(
-            //             fontSize: 25.0,
-            //             fontWeight: FontWeight.w900,
-            //             color: Colors.white),
-            //       ),
-            //       Row(
-            //         mainAxisAlignment: MainAxisAlignment.center,
-            //         crossAxisAlignment: CrossAxisAlignment.baseline,
-            //         textBaseline: TextBaseline.alphabetic,
-            //         children: [
-            //           Text(
-            //             "${height.round()}",
-            //             style: TextStyle(
-            //                 fontSize: 50.0,
-            //                 fontWeight: FontWeight.w900,
-            //                 color: Colors.white),
-            //           ),
-            //           Text(
-            //             "cm",
-            //             style: TextStyle(color: Colors.white),
-            //           )
-            //         ],
-            //       ),
-            //       Slider(
-            //           value: height,
-            //           min: 40,
-            //           max: 230.0,
-            //           onChanged: (value) {
-            //             setState(() {
-            //               height = value;
-            //             });
-            //           }),
-            //     ],
-            //   ),
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(10.0),
-            //     color: Color(0XFFBB2525),
-            //   ),
-            // ),
-          ),
+                )),),
           //third part
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20.0),
@@ -188,19 +140,39 @@ class _BmiHomePageState extends State<BmiHomePage> {
             ),
           ),
           //fourth Part
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(color: Colors.blue),
-              child: TextButton(
-                child: Text(
-                  "Calculate",
-                  style: TextStyle(
-                    fontSize: 25.0,
-                    color: Colors.white,
-                  ),
-                ),
-                onPressed: () {
+        //   Expanded(
+        //     child: Container(
+        //       width: double.infinity,
+        //       decoration: BoxDecoration(color: Colors.blue),
+        //       child: TextButton(
+        //         child: Text(
+        //           "Calculate",
+        //           style: TextStyle(
+        //             fontSize: 25.0,
+        //             color: Colors.white,
+        //           ),
+        //         ),
+        //         onPressed: () {
+        //           setState(() {
+        //             result = weight / pow(manheight / 100, 2);
+        //             result.round();
+        //           });
+        //           Navigator.push(
+        //               context,
+        //               MaterialPageRoute(
+        //                   builder: (context) => Result(
+        //                         result: result.round(),
+        //                         Age: age,
+        //                         gender: isMale ? "Male" : "Female",
+        //                         weight: weight,
+        //                         height: manheight,
+        //                       )));
+        //         },
+        //       ),
+        //     ),
+        //   )
+        // ],
+        CalculateButton(text: "Calculate", onPressed:() {
                   setState(() {
                     result = weight / pow(manheight / 100, 2);
                     result.round();
@@ -211,16 +183,11 @@ class _BmiHomePageState extends State<BmiHomePage> {
                           builder: (context) => Result(
                                 result: result.round(),
                                 Age: age,
-                                gender: isMale? "Male" : "Female",
+                                gender: isMale ? "Male" : "Female",
                                 weight: weight,
                                 height: manheight,
-
-                                
                               )));
-                },
-              ),
-            ),
-          )
+                })
         ],
       ),
     );
